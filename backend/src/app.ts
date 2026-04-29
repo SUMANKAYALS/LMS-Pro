@@ -25,7 +25,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:3000",
-            "https://lms-pro.vercel.app",
+            "https://lms-pro-sigma.vercel.app",
         ],
         credentials: true,
     })
