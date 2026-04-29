@@ -97,6 +97,7 @@ export const login = async (
 ) => {
     try {
         const { email, password } = req.body;
+        console.log("LOGIN API HIT");
 
         // validation
         if (!email || !password) {
