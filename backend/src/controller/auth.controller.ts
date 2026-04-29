@@ -160,20 +160,20 @@ export const logout = async (
     next: NextFunction
 ) => {
     try {
-        // res.clearCookie("token");
-        res.clearCookie("token", {
-            httpOnly: true,
+        res.clearCookie("token");
+        // res.clearCookie("token", {
+        //     httpOnly: true,
 
-            secure:
-                process.env.NODE_ENV ===
-                "production",
+        //     secure:
+        //         process.env.NODE_ENV ===
+        //         "production",
 
-            sameSite:
-                process.env.NODE_ENV ===
-                    "production"
-                    ? "none"
-                    : "lax",
-        });
+        //     sameSite:
+        //         process.env.NODE_ENV ===
+        //             "production"
+        //             ? "none"
+        //             : "lax",
+        // });
 
         res.status(200).json({
             message: "Logout successful",
