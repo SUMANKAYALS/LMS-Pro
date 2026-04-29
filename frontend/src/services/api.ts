@@ -9,6 +9,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:5001/api",
+    baseURL: "https://lms-pro-backend-3q6m.onrender.com/api",
     withCredentials: true, // keep this — sends cookies automatically
 });
