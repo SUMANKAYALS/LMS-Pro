@@ -1,0 +1,13 @@
+export const LOAN_LIMITS = {
+    MIN_AMOUNT: 50000,
+    MAX_AMOUNT: 500000,
+
+    MIN_TENURE: 30,
+    MAX_TENURE: 365,
+
+    MIN_SALARY: 25000,
+    MIN_AGE: 23,
+    MAX_AGE: 50,
+
+    INTEREST_RATE: 12,
+};
