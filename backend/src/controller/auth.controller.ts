@@ -134,6 +134,7 @@ export const login = async (
             httpOnly: true,
             secure: true,
             sameSite: "none",
+            path: "/",
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
@@ -154,28 +155,53 @@ export const login = async (
 /**
  * Logout User
  */
+// export const logout = async (
+//     req: Request,
+//     res: Response,
+//     next: NextFunction
+// ) => {
+//     try {
+//         res.clearCookie("token");
+//         // res.clearCookie("token", {
+//         //     httpOnly: true,
+
+//         //     secure:
+//         //         process.env.NODE_ENV ===
+//         //         "production",
+
+//         //     sameSite:
+//         //         process.env.NODE_ENV ===
+//         //             "production"
+//         //             ? "none"
+//         //             : "lax",
+//         // });
+
+//         res.status(200).json({
+//             message: "Logout successful",
+//         });
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
 export const logout = async (
     req: Request,
     res: Response,
     next: NextFunction
 ) => {
     try {
-        res.clearCookie("token");
-        // res.clearCookie("token", {
-        //     httpOnly: true,
+        res.clearCookie("token", {
+            httpOnly: true,
 
-        //     secure:
-        //         process.env.NODE_ENV ===
-        //         "production",
+            secure: true,
 
-        //     sameSite:
-        //         process.env.NODE_ENV ===
-        //             "production"
-        //             ? "none"
-        //             : "lax",
-        // });
+            sameSite: "none",
 
-        res.status(200).json({
+            path: "/",
+        });
+
+        return res.status(200).json({
+            success: true,
             message: "Logout successful",
         });
     } catch (error) {

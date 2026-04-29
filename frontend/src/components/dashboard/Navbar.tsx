@@ -16,10 +16,31 @@ export default function Navbar({ name = "User", role = "Guest" }: NavbarProps) {
     const handleLogout = async () => {
         try {
             await logoutUser();
-            toast.success("Signed out successfully");
-            router.push("/login");
+
+            /**
+             * Sync logout across tabs
+             */
+            localStorage.setItem(
+                "logout",
+                Date.now().toString()
+            );
+
+            toast.success(
+                "Signed out successfully"
+            );
+
+            /**
+             * Prevent back navigation
+             */
+            router.replace("/login");
+
+            router.refresh();
         } catch (error) {
-            toast.error("Sign out failed");
+            console.log(error);
+
+            toast.error(
+                "Sign out failed"
+            );
         }
     };
 
